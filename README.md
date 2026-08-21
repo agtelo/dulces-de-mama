@@ -20,19 +20,9 @@ npm install
 npm run dev
 ```
 
+Las imágenes se descargan automáticamente a `public/` en `predev` / `prebuild` desde `assets-urls.json`.
+
 Abrí http://localhost:4321/dulces-de-mama/
-
-## Imágenes
-
-Las imágenes van en `public/img/`:
-
-- `logo-principal-v2.jpg`
-- `logo-etiqueta-v2.jpg`
-- `foto-producto.jpg`
-- `icono-frasco.jpg`
-- `public/favicon.jpg`
-
-Si clonás el repo vacío de imágenes, copialas desde el proyecto de marca.
 
 ## WhatsApp
 
@@ -46,7 +36,7 @@ Reemplazá `54911XXXXXXXX` por el número real en:
 
 1. Repo → **Settings → Pages**
 2. Source: **GitHub Actions**
-3. Al pushear a `main`, el workflow despliega automáticamente
+3. Al pushear a `main`, el workflow descarga assets, buildea y despliega
 
 URL esperada: `https://agtelo.github.io/dulces-de-mama/`
 
@@ -58,7 +48,8 @@ src/
 ├── layouts/      # BaseLayout
 ├── pages/        # index.astro
 └── styles/       # global.css (tokens de marca)
-public/img/       # logos y foto de producto
+assets-urls.json  # URLs de logos y foto de producto
+scripts/          # descarga de assets en prebuild
 ```
 
 ## Marca
