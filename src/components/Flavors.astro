@@ -1,0 +1,39 @@
+---
+const flavors = [
+  { name: 'Frutilla', desc: 'Clásica, intensa, con trocitos de fruta', status: 'ok' },
+  { name: 'Durazno', desc: 'Suave y aromática, ideal para el desayuno', status: 'ok' },
+  { name: 'Membrillo', desc: 'Tradicional y sedoso', status: 'ok' },
+  { name: 'Naranja', desc: 'Cítrica y equilibrada, perfecta con queso', status: 'soon' },
+  { name: 'Frutos Rojos', desc: 'Mezcla de berries de temporada', status: 'soon' },
+  { name: 'Manzana', desc: 'Con canela, sabor de otoño', status: 'soon' },
+];
+---
+<section id="sabores" class="px-5 py-11">
+  <h2 class="font-display mb-1 text-center text-[clamp(2rem,6vw,2.5rem)] font-bold tracking-wide text-berry">
+    Sabores
+  </h2>
+  <p class="mb-6 text-center text-[0.95rem] text-muted">
+    Ahora tenemos frutilla, durazno y membrillo. El resto según temporada.
+  </p>
+  <ul class="mx-auto max-w-md list-none">
+    {flavors.map((f) => (
+      <li class="flex flex-wrap items-baseline gap-2.5 border-b border-dashed border-line py-3 last:border-0">
+        <span class="font-display min-w-[7rem] text-[1.5rem] font-bold tracking-wide text-berry">
+          {f.name}
+        </span>
+        <span class="min-w-[10rem] flex-1 text-[0.92rem] leading-snug text-muted">
+          {f.desc}
+        </span>
+        {f.status === 'ok' ? (
+          <span class="rounded-full bg-[#E5EDE5] px-2 py-0.5 text-[0.72rem] font-semibold uppercase tracking-wide text-success">
+            Disponible
+          </span>
+        ) : (
+          <span class="rounded-full bg-[#F0E8DC] px-2 py-0.5 text-[0.72rem] font-semibold uppercase tracking-wide text-muted">
+            Próximamente
+          </span>
+        )}
+      </li>
+    ))}
+  </ul>
+</section>
