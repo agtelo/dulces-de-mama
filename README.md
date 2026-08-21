@@ -11,33 +11,28 @@ Landing page de **Dulces de Mamá** — mermeladas y dulces caseros hechos con a
 - Tipografía: Amatic SC + Cabin
 - Estilo: craft / feria / cocina de mamá
 
-## Desarrollo
+## Desarrollo local
 
 ```bash
+git clone https://github.com/agtelo/dulces-de-mama.git
+cd dulces-de-mama
 npm install
 npm run dev
 ```
 
 Abrí http://localhost:4321/dulces-de-mama/
 
-## Build
+## Imágenes
 
-```bash
-npm run build
-npm run preview
-```
+Las imágenes van en `public/img/`:
 
-## Deploy (GitHub Pages)
+- `logo-principal-v2.jpg`
+- `logo-etiqueta-v2.jpg`
+- `foto-producto.jpg`
+- `icono-frasco.jpg`
+- `public/favicon.jpg`
 
-El `astro.config.mjs` ya tiene:
-
-```js
-site: 'https://agtelo.github.io',
-base: '/dulces-de-mama',
-```
-
-1. En el repo → Settings → Pages → Source: **GitHub Actions**
-2. O subí la carpeta `dist/` a la branch `gh-pages`
+Si clonás el repo vacío de imágenes, copialas desde el proyecto de marca.
 
 ## WhatsApp
 
@@ -47,19 +42,25 @@ Reemplazá `54911XXXXXXXX` por el número real en:
 - `src/components/HowToOrder.astro`
 - `src/components/StickyCta.astro`
 
+## Deploy (GitHub Pages)
+
+1. Repo → **Settings → Pages**
+2. Source: **GitHub Actions**
+3. Al pushear a `main`, el workflow despliega automáticamente
+
+URL esperada: `https://agtelo.github.io/dulces-de-mama/`
+
 ## Estructura
 
 ```
 src/
-├── components/     # Header, Hero, Flavors, etc.
-├── layouts/        # BaseLayout
-├── pages/          # index.astro
-└── styles/         # global.css (tokens de marca)
-public/img/         # logos y foto de producto
+├── components/   # Header, Hero, Flavors, Testimonials…
+├── layouts/      # BaseLayout
+├── pages/        # index.astro
+└── styles/       # global.css (tokens de marca)
+public/img/       # logos y foto de producto
 ```
 
 ## Marca
 
-Colores y tipografía definidos en `src/styles/global.css` (`@theme`).
-
-Manual de marca y assets en el proyecto original.
+Colores y tipografía en `src/styles/global.css` (`@theme`).
