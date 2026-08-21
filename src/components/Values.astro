@@ -1,0 +1,23 @@
+---
+const values = [
+  { title: 'Amor familiar', text: 'El mismo cariño que se pone en la mesa de casa' },
+  { title: '100% natural', text: 'Fruta + azúcar + tiempo. Nada más' },
+  { title: 'Lotes chicos', text: 'Control total del proceso' },
+  { title: 'Cercanía', text: 'Solo para amigos y conocidos' },
+];
+---
+<section class="bg-kraft px-5 py-10">
+  <h2 class="font-display mb-5 text-center text-[clamp(2rem,6vw,2.5rem)] font-bold tracking-wide text-berry">
+    Lo que nos define
+  </h2>
+  <div class="mx-auto grid max-w-lg grid-cols-1 gap-5 sm:grid-cols-2">
+    {values.map((v) => (
+      <div>
+        <strong class="font-display mb-0.5 block text-[1.35rem] font-bold tracking-wide text-berry">
+          {v.title}
+        </strong>
+        <span class="text-[0.9rem] leading-snug text-muted">{v.text}</span>
+      </div>
+    ))}
+  </div>
+</section>
