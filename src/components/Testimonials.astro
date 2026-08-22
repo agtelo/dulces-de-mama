@@ -14,18 +14,18 @@ const items = [
   },
 ];
 ---
-<section class="border-y border-line bg-paper px-5 py-11">
-  <h2 class="font-display mb-6 text-center text-[clamp(2rem,6vw,2.5rem)] font-bold tracking-wide text-berry">
-    Lo que dicen los amigos
-  </h2>
-  <div class="mx-auto flex max-w-lg flex-col gap-4.5">
-    {items.map((t) => (
-      <blockquote class="rounded-[10px] border border-line bg-white-soft px-5 py-4">
-        <p class="mb-2 text-[0.98rem] italic leading-relaxed text-ink">
-          “{t.quote}”
-        </p>
-        <cite class="text-sm font-semibold not-italic text-muted">— {t.author}</cite>
-      </blockquote>
-    ))}
+<section class="section section-alt" id="amigos">
+  <div class="container">
+    <div class="section-head">
+      <h2>Lo que dicen los amigos</h2>
+    </div>
+    <div class="testimonial-grid">
+      {items.map((t) => (
+        <blockquote class="testimonial">
+          <p>“{t.quote}”</p>
+          <cite>— {t.author}</cite>
+        </blockquote>
+      ))}
+    </div>
   </div>
 </section>

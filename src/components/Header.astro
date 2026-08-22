@@ -1,17 +1,71 @@
 ---
 const base = import.meta.env.BASE_URL;
+const wa = 'https://wa.me/54911XXXXXXXX?text=Hola!%20Quiero%20pedir%20Dulces%20de%20Mamá';
+const links = [
+  { href: '#historia', label: 'Historia' },
+  { href: '#sabores', label: 'Sabores' },
+  { href: '#valores', label: 'Valores' },
+  { href: '#amigos', label: 'Amigos' },
+  { href: '#pedir', label: 'Cómo pedir' },
+  { href: '#contacto', label: 'Contacto' },
+];
 ---
-<header class="bg-paper border-b border-line pt-5 pb-3.5 px-5 text-center">
-  <div class="mx-auto mb-1 w-[min(130px,36vw)]">
-    <img
-      src={`${base}img/logo-principal-v2.jpg`}
-      alt="Dulces de Mamá"
-      width="130"
-      height="195"
-      class="w-full rounded-sm"
-    />
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#inicio" class="nav-brand">
+      <img src={`${base}img/logo-principal-v2.jpg`} alt="" width="44" height="44" />
+      <span>Dulces de Mamá</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Principal">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
+
+    <a class="btn btn-primary nav-cta" href={wa} target="_blank" rel="noopener">WhatsApp</a>
+
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="nav-panel"
+      id="nav-toggle"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"></path>
+      </svg>
+    </button>
   </div>
-  <p class="font-display text-[1.35rem] font-bold tracking-wide text-berry">
-    Hecho con amor en casa
-  </p>
+
+  <div class="nav-panel" id="nav-panel" hidden>
+    {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    <a class="btn btn-primary" href={wa} target="_blank" rel="noopener">Pedir por WhatsApp</a>
+  </div>
 </header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const panel = document.getElementById('nav-panel');
+  if (toggle && panel) {
+    const closeMenu = () => {
+      panel.classList.remove('is-open');
+      panel.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Abrir menú');
+    };
+    const openMenu = () => {
+      panel.hidden = false;
+      panel.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Cerrar menú');
+    };
+    toggle.addEventListener('click', () => {
+      panel.classList.contains('is-open') ? closeMenu() : openMenu();
+    });
+    panel.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+    window.addEventListener('resize', () => {
+      if (window.matchMedia('(min-width: 640px)').matches) closeMenu();
+    });
+  }
+</script>
