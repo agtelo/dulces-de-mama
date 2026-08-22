@@ -21,16 +21,13 @@ const base = import.meta.env.BASE_URL;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={`${base}img/logo-principal-v2.jpg`} />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#A61B34" />
-
     <link rel="icon" href={`${base}favicon.jpg`} type="image/jpeg" />
     <link rel="apple-touch-icon" href={`${base}img/icono-frasco.jpg`} />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -38,7 +35,7 @@ const base = import.meta.env.BASE_URL;
       rel="stylesheet"
     />
   </head>
-  <body class="pb-20 md:pb-0">
+  <body class="has-sticky-cta">
     <slot />
   </body>
 </html>

@@ -1,10 +1,7 @@
 {
   "name": "dulces-de-mama",
   "type": "module",
-  "version": "0.0.1",
-  "engines": {
-    "node": ">=22.12.0"
-  },
+  "version": "0.0.2",
   "scripts": {
     "decode-assets": "node scripts/decode-assets.mjs",
     "predev": "node scripts/decode-assets.mjs",
@@ -19,5 +16,5 @@
     "astro": "^7.2.4",
     "tailwindcss": "^4.3.3"
   },
-  "description": "Landing page Dulces de Mamá — mermeladas caseras. Astro + Tailwind."
+  "description": "Landing Dulces de Mamá — Astro + Tailwind. Refined craft UI."
 }
