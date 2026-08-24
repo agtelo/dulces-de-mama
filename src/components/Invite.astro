@@ -9,7 +9,7 @@ const heroBg = `${base}img/hero-frutos.jpg`;
 <section
   class="invite"
   id="inicio"
-  style={`--invite-bg: url('${heroBg}')`}
+  style={`background-image: url('${heroBg}')`}
 >
   <div class="invite-veil" aria-hidden="true"></div>
   <div class="container invite-inner">
@@ -26,3 +26,43 @@ const heroBg = `${base}img/hero-frutos.jpg`;
     </div>
   </div>
 </section>
+
+<style>
+  .invite {
+    position: relative;
+    padding: var(--space-16) 0 var(--space-20);
+    text-align: center;
+    background-color: var(--cream);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+  .invite-veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(246, 240, 230, 0.75) 0%,
+      rgba(246, 240, 230, 0.55) 45%,
+      rgba(246, 240, 230, 0.8) 100%
+    );
+    pointer-events: none;
+  }
+  .invite-inner {
+    position: relative;
+    z-index: 1;
+    max-width: var(--container);
+    margin-inline: auto;
+  }
+  @media (min-width: 768px) {
+    .invite {
+      padding: var(--space-20) 0 var(--space-24);
+    }
+  }
+  @media (min-width: 1280px) {
+    .invite h1 {
+      font-size: 4.5rem;
+    }
+  }
+</style>
