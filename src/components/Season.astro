@@ -1,66 +1,12 @@
 ---
-const base = import.meta.env.BASE_URL;
-
-/**
- * Precios orientativos (frasco ~350–400 g).
- * Imágenes: prioriza public/img/sabor-*.jpg (acuarela logo).
- * Fallback: arte de marca / Unsplash si aún no están subidas.
- */
+/** Precios orientativos (frasco ~350–400 g). */
 const flavors = [
-  {
-    name: 'Frutilla',
-    note: 'Intensa, con trocitos',
-    price: 9500,
-    on: true,
-    img: `${base}img/sabor-frutilla.jpg`,
-    fallback: 'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&h=400&fit=crop&q=80',
-    alt: 'Frasco de mermelada de frutilla',
-  },
-  {
-    name: 'Durazno',
-    note: 'Suave, de desayuno',
-    price: 9000,
-    on: true,
-    img: `${base}img/sabor-durazno.jpg`,
-    fallback: 'https://images.unsplash.com/photo-1629828874514-8c0f3b8a8b0f?w=400&h=400&fit=crop&q=80',
-    alt: 'Frasco de mermelada de durazno',
-  },
-  {
-    name: 'Membrillo',
-    note: 'Tradicional y sedoso',
-    price: 9000,
-    on: true,
-    img: `${base}img/sabor-membrillo.jpg`,
-    fallback: 'https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=400&h=400&fit=crop&q=80',
-    alt: 'Frasco de dulce de membrillo',
-  },
-  {
-    name: 'Naranja',
-    note: 'Cítrica, ideal con queso',
-    price: 9500,
-    on: false,
-    img: `${base}img/sabor-naranja.jpg`,
-    fallback: 'https://images.unsplash.com/photo-1547514701-42782101795e?w=400&h=400&fit=crop&q=80',
-    alt: 'Frasco de mermelada de naranja',
-  },
-  {
-    name: 'Frutos rojos',
-    note: 'Cuando hay berries',
-    price: 11000,
-    on: false,
-    img: `${base}img/sabor-frutos-rojos.jpg`,
-    fallback: 'https://images.unsplash.com/photo-1563746098251-dfb89bd6a1f4?w=400&h=400&fit=crop&q=80',
-    alt: 'Frasco de mermelada de frutos rojos',
-  },
-  {
-    name: 'Manzana',
-    note: 'Con canela, de otoño',
-    price: 9000,
-    on: false,
-    img: `${base}img/sabor-manzana.jpg`,
-    fallback: 'https://images.unsplash.com/photo-1560806887-1e4cd0b21ca2?w=400&h=400&fit=crop&q=80',
-    alt: 'Frasco de mermelada de manzana',
-  },
+  { name: 'Frutilla', note: 'Intensa, con trocitos', price: 9500, on: true },
+  { name: 'Durazno', note: 'Suave, de desayuno', price: 9000, on: true },
+  { name: 'Membrillo', note: 'Tradicional y sedoso', price: 9000, on: true },
+  { name: 'Naranja', note: 'Cítrica, ideal con queso', price: 9500, on: false },
+  { name: 'Frutos rojos', note: 'Cuando hay berries', price: 11000, on: false },
+  { name: 'Manzana', note: 'Con canela, de otoño', price: 9000, on: false },
 ];
 
 const formatPrice = (n: number) =>
@@ -83,16 +29,6 @@ const formatPrice = (n: number) =>
     <ul class="season-list">
       {flavors.map((f) => (
         <li class={`season-item ${f.on ? 'is-on' : 'is-off'}`}>
-          <div class="season-media">
-            <img
-              src={f.img}
-              alt={f.alt}
-              width="96"
-              height="96"
-              loading="lazy"
-              onerror={`this.onerror=null;this.src='${f.fallback}'`}
-            />
-          </div>
           <div class="season-body">
             <div class="season-top">
               <span class="season-name">{f.name}</span>
