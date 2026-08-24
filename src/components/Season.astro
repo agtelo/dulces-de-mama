@@ -3,7 +3,8 @@ const base = import.meta.env.BASE_URL;
 
 /**
  * Precios orientativos (frasco ~350–400 g).
- * Imágenes en acuarela, mismo estilo que el logo de marca.
+ * Imágenes: prioriza public/img/sabor-*.jpg (acuarela logo).
+ * Fallback: arte de marca / Unsplash si aún no están subidas.
  */
 const flavors = [
   {
@@ -12,6 +13,7 @@ const flavors = [
     price: 9500,
     on: true,
     img: `${base}img/sabor-frutilla.jpg`,
+    fallback: 'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&h=400&fit=crop&q=80',
     alt: 'Frasco de mermelada de frutilla',
   },
   {
@@ -20,6 +22,7 @@ const flavors = [
     price: 9000,
     on: true,
     img: `${base}img/sabor-durazno.jpg`,
+    fallback: 'https://images.unsplash.com/photo-1629828874514-8c0f3b8a8b0f?w=400&h=400&fit=crop&q=80',
     alt: 'Frasco de mermelada de durazno',
   },
   {
@@ -28,6 +31,7 @@ const flavors = [
     price: 9000,
     on: true,
     img: `${base}img/sabor-membrillo.jpg`,
+    fallback: 'https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=400&h=400&fit=crop&q=80',
     alt: 'Frasco de dulce de membrillo',
   },
   {
@@ -36,6 +40,7 @@ const flavors = [
     price: 9500,
     on: false,
     img: `${base}img/sabor-naranja.jpg`,
+    fallback: 'https://images.unsplash.com/photo-1547514701-42782101795e?w=400&h=400&fit=crop&q=80',
     alt: 'Frasco de mermelada de naranja',
   },
   {
@@ -44,6 +49,7 @@ const flavors = [
     price: 11000,
     on: false,
     img: `${base}img/sabor-frutos-rojos.jpg`,
+    fallback: 'https://images.unsplash.com/photo-1563746098251-dfb89bd6a1f4?w=400&h=400&fit=crop&q=80',
     alt: 'Frasco de mermelada de frutos rojos',
   },
   {
@@ -52,6 +58,7 @@ const flavors = [
     price: 9000,
     on: false,
     img: `${base}img/sabor-manzana.jpg`,
+    fallback: 'https://images.unsplash.com/photo-1560806887-1e4cd0b21ca2?w=400&h=400&fit=crop&q=80',
     alt: 'Frasco de mermelada de manzana',
   },
 ];
@@ -77,7 +84,14 @@ const formatPrice = (n: number) =>
       {flavors.map((f) => (
         <li class={`season-item ${f.on ? 'is-on' : 'is-off'}`}>
           <div class="season-media">
-            <img src={f.img} alt={f.alt} width="96" height="96" loading="lazy" />
+            <img
+              src={f.img}
+              alt={f.alt}
+              width="96"
+              height="96"
+              loading="lazy"
+              onerror={`this.onerror=null;this.src='${f.fallback}'`}
+            />
           </div>
           <div class="season-body">
             <div class="season-top">
