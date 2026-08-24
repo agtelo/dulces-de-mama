@@ -27,14 +27,45 @@ const voices = [
     </div>
     <div class="voices-grid">
       {voices.map((v) => (
-        <blockquote class="voice">
-          <p>“{v.text}”</p>
-          <footer>
-            <cite>{v.who}</cite>
-            <span>{v.where}</span>
-          </footer>
+        <blockquote class="voice voice-card">
+          <div class="voice-label-bar" aria-hidden="true"></div>
+          <div class="voice-body">
+            <p>“{v.text}”</p>
+            <footer>
+              <cite>{v.who}</cite>
+              <span>{v.where}</span>
+            </footer>
+          </div>
         </blockquote>
       ))}
     </div>
   </div>
 </section>
+
+<style>
+  .voice-card {
+    display: grid;
+    grid-template-columns: 8px 1fr;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+    background: var(--paper);
+    border: 2px solid var(--line);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+  }
+  .voice-label-bar {
+    background: var(--peach);
+    min-height: 100%;
+  }
+  .voice-body {
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+  .voice-body footer {
+    border-top: 2px solid var(--line);
+    padding-top: var(--space-4);
+  }
+</style>

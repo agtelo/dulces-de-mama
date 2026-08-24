@@ -31,26 +31,68 @@ const steps = [
     </div>
     <ol class="path-steps">
       {steps.map((s) => (
-        <li class="path-step">
-          <span class="path-num" aria-hidden="true">{s.n}</span>
-          <div>
-            <strong>{s.title}</strong>
-            <p>{s.text}</p>
+        <li class="path-step path-card">
+          <div class="path-label-bar" aria-hidden="true"></div>
+          <div class="path-step-body">
+            <span class="path-num" aria-hidden="true">{s.n}</span>
+            <div>
+              <strong>{s.title}</strong>
+              <p>{s.text}</p>
+            </div>
           </div>
         </li>
       ))}
     </ol>
-    <div class="path-extra">
-      <p>
-        <strong>Retiro:</strong> a coordinar en CABA / GBA.
-        <strong> Envío:</strong> cadete o moto a convenir.
-      </p>
-      <p>
-        <strong>Pago:</strong> transferencia o Mercado Pago cuando confirmamos el pedido.
-      </p>
+    <div class="path-extra path-card">
+      <div class="path-label-bar" aria-hidden="true"></div>
+      <div class="path-extra-body">
+        <p>
+          <strong>Retiro:</strong> a coordinar en CABA / GBA.
+          <strong> Envío:</strong> cadete o moto a convenir.
+        </p>
+        <p>
+          <strong>Pago:</strong> transferencia o Mercado Pago cuando confirmamos.
+        </p>
+      </div>
     </div>
     <div class="path-cta">
       <a class="btn btn-primary btn-lg" href={wa} target="_blank" rel="noopener">Escribime por WhatsApp</a>
     </div>
   </div>
 </section>
+
+<style>
+  /* Mismo lenguaje de “bloque de mesa” que Season */
+  .path-card {
+    display: grid;
+    grid-template-columns: 8px 1fr;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+    background: var(--paper);
+    border: 2px solid var(--line);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+  }
+  .path-label-bar {
+    background: var(--berry);
+    min-height: 100%;
+  }
+  .path-step-body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-5);
+    align-items: start;
+    padding: var(--space-6);
+  }
+  .path-extra-body {
+    padding: var(--space-5) var(--space-6);
+  }
+  .path-extra-body p + p {
+    margin-top: 0.5rem;
+  }
+  /* anular grid viejo del step */
+  .path-step.path-card {
+    grid-template-columns: 8px 1fr;
+  }
+</style>

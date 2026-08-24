@@ -4,7 +4,6 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
-  /** URL canónica del sitio cuando esté en producción */
   canonical?: string;
 }
 
@@ -33,19 +32,9 @@ const jsonLd = {
     addressRegion: 'CABA',
     addressCountry: 'AR',
   },
-  areaServed: {
-    '@type': 'City',
-    name: 'Buenos Aires',
-  },
+  areaServed: { '@type': 'City', name: 'Buenos Aires' },
   servesCuisine: 'Mermeladas y dulces caseros',
   priceRange: '$$',
-  openingHoursSpecification: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-    opens: '09:00',
-    closes: '20:00',
-  },
-  sameAs: [],
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'sales',
@@ -60,7 +49,6 @@ const jsonLd = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta
@@ -70,8 +58,6 @@ const jsonLd = {
     <meta name="author" content="Dulces de Mamá" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonical} />
-
-    <!-- Open Graph -->
     <meta property="og:locale" content="es_AR" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Dulces de Mamá" />
@@ -80,33 +66,34 @@ const jsonLd = {
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:alt" content="Frasco de mermelada casera Dulces de Mamá" />
-
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-
     <meta name="theme-color" content="#A61B34" />
     <link rel="icon" href={favicon} type="image/jpeg" />
     <link rel="apple-touch-icon" href={favicon} />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
-  <body class="has-sticky-cta">
+  <body class="has-sticky-cta paper-texture">
     <a class="skip-link" href="#inicio">Ir al contenido</a>
     <slot />
   </body>
 </html>
 
 <style is:global>
+  /* Textura papel — frontend-design / design-md */
+  .paper-texture {
+    background-color: var(--cream);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+
   .skip-link {
     position: absolute;
     left: var(--space-4);
@@ -132,9 +119,26 @@ const jsonLd = {
     outline: 4px solid var(--peach);
     outline-offset: 3px;
   }
-  .nav-links a:focus-visible,
-  .nav-panel a:focus-visible {
-    outline-offset: 2px;
+
+  /* CTA secundario más liviano — UX: gana Escribime */
+  .btn-ghost {
+    min-height: 48px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    border-width: 1.5px;
+    background: transparent;
+    box-shadow: none;
+  }
+  .btn-ghost:hover {
+    background: var(--berry-soft);
+  }
+
+  /* Ritmo de secciones */
+  .season {
+    padding-bottom: var(--space-24);
+  }
+  .path {
+    padding-top: var(--space-20);
   }
 
   .sticky-cta {
