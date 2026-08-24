@@ -1,11 +1,9 @@
 ---
+const base = import.meta.env.BASE_URL;
+
 /**
  * Precios orientativos (frasco ~350–400 g).
- * Referencia mercado AR reciente:
- * - Supermercado industrial ~$2.000–$6.000
- * - Artesanal de marca (El Brocal, Las Quinas, etc.) ~$7.000–$11.000
- * - Casero / feria / lote chico: suele ir de $8.000 a $12.000+
- * Posicionamos Dulces de Mamá en el rango casero cercano.
+ * Imágenes en acuarela, mismo estilo que el logo de marca.
  */
 const flavors = [
   {
@@ -13,48 +11,48 @@ const flavors = [
     note: 'Intensa, con trocitos',
     price: 9500,
     on: true,
-    img: 'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&h=400&fit=crop&q=80',
-    alt: 'Frutillas frescas',
+    img: `${base}img/sabor-frutilla.jpg`,
+    alt: 'Frasco de mermelada de frutilla',
   },
   {
     name: 'Durazno',
     note: 'Suave, de desayuno',
     price: 9000,
     on: true,
-    img: 'https://images.unsplash.com/photo-1629828874514-8c0f3b8a8b0f?w=400&h=400&fit=crop&q=80',
-    alt: 'Duraznos',
+    img: `${base}img/sabor-durazno.jpg`,
+    alt: 'Frasco de mermelada de durazno',
   },
   {
     name: 'Membrillo',
     note: 'Tradicional y sedoso',
     price: 9000,
     on: true,
-    img: 'https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=400&h=400&fit=crop&q=80',
-    alt: 'Dulce en frasco',
+    img: `${base}img/sabor-membrillo.jpg`,
+    alt: 'Frasco de dulce de membrillo',
   },
   {
     name: 'Naranja',
     note: 'Cítrica, ideal con queso',
     price: 9500,
     on: false,
-    img: 'https://images.unsplash.com/photo-1547514701-42782101795e?w=400&h=400&fit=crop&q=80',
-    alt: 'Naranjas',
+    img: `${base}img/sabor-naranja.jpg`,
+    alt: 'Frasco de mermelada de naranja',
   },
   {
     name: 'Frutos rojos',
     note: 'Cuando hay berries',
     price: 11000,
     on: false,
-    img: 'https://images.unsplash.com/photo-1563746098251-dfb89bd6a1f4?w=400&h=400&fit=crop&q=80',
-    alt: 'Frutos rojos',
+    img: `${base}img/sabor-frutos-rojos.jpg`,
+    alt: 'Frasco de mermelada de frutos rojos',
   },
   {
     name: 'Manzana',
     note: 'Con canela, de otoño',
     price: 9000,
     on: false,
-    img: 'https://images.unsplash.com/photo-1560806887-1e4cd0b21ca2?w=400&h=400&fit=crop&q=80',
-    alt: 'Manzanas',
+    img: `${base}img/sabor-manzana.jpg`,
+    alt: 'Frasco de mermelada de manzana',
   },
 ];
 
