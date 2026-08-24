@@ -14,7 +14,7 @@ const links = [
 <header class="nav">
   <div class="container nav-inner">
     <a href="#inicio" class="nav-brand">
-      <img src={`${base}img/logo-principal-v2.jpg`} alt="" width="44" height="44" />
+      <img src={`${base}img/logo-principal-v2.jpg`} alt="" width="48" height="48" />
       <span>Dulces de Mamá</span>
     </a>
 
@@ -65,7 +65,7 @@ const links = [
     });
     panel.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
     window.addEventListener('resize', () => {
-      if (window.matchMedia('(min-width: 640px)').matches) closeMenu();
+      if (window.matchMedia('(min-width: 768px)').matches) closeMenu();
     });
   }
 </script>
