@@ -18,7 +18,7 @@ const base = import.meta.env.BASE_URL;
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
@@ -36,6 +36,71 @@ const base = import.meta.env.BASE_URL;
     />
   </head>
   <body class="has-sticky-cta">
+    <a class="skip-link" href="#inicio">Ir al contenido</a>
     <slot />
   </body>
 </html>
+
+<style is:global>
+  /* Skip link — accesibilidad */
+  .skip-link {
+    position: absolute;
+    left: var(--space-4);
+    top: -100px;
+    z-index: 100;
+    padding: 0.75rem 1.25rem;
+    background: var(--berry);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-md);
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus {
+    top: var(--space-4);
+    outline: 4px solid var(--peach);
+    outline-offset: 3px;
+  }
+
+  /* Focus visible global */
+  a:focus-visible,
+  button:focus-visible {
+    outline: 4px solid var(--peach);
+    outline-offset: 3px;
+  }
+  .nav-links a:focus-visible,
+  .nav-panel a:focus-visible {
+    outline-offset: 2px;
+  }
+
+  /* Sticky CTA + safe area iPhone */
+  .sticky-cta {
+    padding-bottom: calc(1.15rem + env(safe-area-inset-bottom, 0px));
+  }
+  body.has-sticky-cta {
+    padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
+  }
+  @media (min-width: 768px) {
+    body.has-sticky-cta {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Path — mejor contraste sobre kraft */
+  .path-head p,
+  .path-step p,
+  .path-extra {
+    color: #4a3a30;
+  }
+  .path-extra strong {
+    color: var(--ink);
+  }
+
+  /* Hero mobile: título legible */
+  @media (max-width: 380px) {
+    .invite h1 {
+      font-size: 2.4rem;
+    }
+  }
+</style>

@@ -38,7 +38,6 @@ const heroBg = `${base}img/hero-frutos.jpg`;
     background-repeat: no-repeat;
     overflow: hidden;
   }
-  /* Velo más suave: se ven los frutos de las esquinas */
   .invite-veil {
     position: absolute;
     inset: 0;
@@ -58,6 +57,9 @@ const heroBg = `${base}img/hero-frutos.jpg`;
   }
   .invite-inner .invite-lead {
     text-shadow: 0 1px 0 rgba(255, 252, 247, 0.8);
+  }
+  .invite h1 {
+    font-size: clamp(2.4rem, 9vw, 4.25rem);
   }
   @media (min-width: 768px) {
     .invite {
