@@ -47,28 +47,37 @@ const wa = 'https://wa.me/54911XXXXXXXX?text=Hola!%20Quiero%20pedir%20Dulces%20d
   </div>
 </header>
 
-<script>
-  const toggle = document.getElementById('nav-toggle');
-  const panel = document.getElementById('nav-panel');
-  if (toggle && panel) {
-    const closeMenu = () => {
+<script is:inline>
+  (function () {
+    var toggle = document.getElementById('nav-toggle');
+    var panel = document.getElementById('nav-panel');
+    if (!toggle || !panel) return;
+
+    function closeMenu() {
       panel.classList.remove('is-open');
       panel.hidden = true;
       toggle.setAttribute('aria-expanded', 'false');
       toggle.setAttribute('aria-label', 'Abrir menú');
-    };
-    const openMenu = () => {
+    }
+
+    function openMenu() {
       panel.hidden = false;
       panel.classList.add('is-open');
       toggle.setAttribute('aria-expanded', 'true');
       toggle.setAttribute('aria-label', 'Cerrar menú');
-    };
-    toggle.addEventListener('click', () => {
-      panel.classList.contains('is-open') ? closeMenu() : openMenu();
+    }
+
+    toggle.addEventListener('click', function () {
+      if (panel.classList.contains('is-open')) closeMenu();
+      else openMenu();
     });
-    panel.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
-    window.addEventListener('resize', () => {
+
+    panel.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', function () {
       if (window.matchMedia('(min-width: 768px)').matches) closeMenu();
     });
-  }
+  })();
 </script>

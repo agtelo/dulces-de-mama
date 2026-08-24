@@ -1,11 +1,11 @@
 {
   "name": "dulces-de-mama",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "decode-assets": "node scripts/decode-assets.mjs",
-    "predev": "node scripts/decode-assets.mjs",
-    "prebuild": "node scripts/decode-assets.mjs",
+    "predev": "node scripts/decode-assets.mjs || true",
+    "prebuild": "node scripts/decode-assets.mjs || true",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -16,5 +16,5 @@
     "astro": "^7.2.4",
     "tailwindcss": "^4.3.3"
   },
-  "description": "Landing Dulces de Mamá — Astro + Tailwind. Refined craft UI."
+  "description": "Landing Dulces de Mamá — Astro + Tailwind."
 }
