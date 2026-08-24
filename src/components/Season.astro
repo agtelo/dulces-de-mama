@@ -1,10 +1,10 @@
 ---
 /**
  * Precios orientativos (frasco ~350–400 g).
- * Referencia mercado AR 2025–26:
+ * Referencia mercado AR reciente:
  * - Supermercado industrial ~$2.000–$6.000
- * - Artesanal (El Brocal, Las Quinas, Beepure) ~$7.000–$11.000
- * - Casero / feria / lote chico: suele ubicarse en $8.000–$12.000+
+ * - Artesanal de marca (El Brocal, Las Quinas, etc.) ~$7.000–$11.000
+ * - Casero / feria / lote chico: suele ir de $8.000 a $12.000+
  * Posicionamos Dulces de Mamá en el rango casero cercano.
  */
 const flavors = [
@@ -21,16 +21,16 @@ const flavors = [
     note: 'Suave, de desayuno',
     price: 9000,
     on: true,
-    img: 'https://images.unsplash.com/photo-1629828874514-8c0f3b8a8b0f?w=400&h=400&fit=crop&q=80',
-    alt: 'Duraznos maduros',
+    img: 'https://images.unsplash.com/photo-1629828874514-d0a8a8b0f?w=400&h=400&fit=crop&q=80',
+    alt: 'Duraznos',
   },
   {
     name: 'Membrillo',
     note: 'Tradicional y sedoso',
     price: 9000,
     on: true,
-    img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=400&fit=crop&q=80',
-    alt: 'Dulce de membrillo',
+    img: 'https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=400&h=400&fit=crop&q=80',
+    alt: 'Dulce en frasco',
   },
   {
     name: 'Naranja',
@@ -79,7 +79,7 @@ const formatPrice = (n: number) =>
       {flavors.map((f) => (
         <li class={`season-item ${f.on ? 'is-on' : 'is-off'}`}>
           <div class="season-media">
-            <img src={f.img} alt={f.alt} width="120" height="120" loading="lazy" />
+            <img src={f.img} alt={f.alt} width="96" height="96" loading="lazy" />
           </div>
           <div class="season-body">
             <div class="season-top">

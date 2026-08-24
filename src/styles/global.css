@@ -2,8 +2,6 @@
 
 /* ============================================================
    Dulces de Mamá — Invitación a la mesa
-   Concepto: invitación personal, no landing de venta
-   UI cálida + rechoncha
    ============================================================ */
 :root {
   --berry: #A61B34;
@@ -78,7 +76,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   padding-inline: var(--space-5);
 }
 
-/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -130,7 +127,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   box-shadow: 0 6px 0 rgba(0,0,0,0.18), var(--shadow-md);
 }
 
-/* Nav */
 .nav {
   position: sticky;
   top: 0;
@@ -221,7 +217,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 .nav-panel a:hover { background: var(--cream); color: var(--berry); }
 .nav-panel .btn { width: 100%; margin-top: var(--space-3); }
 
-/* ——— 1. INVITE ——— */
 .invite {
   padding: var(--space-16) 0 var(--space-20);
   text-align: center;
@@ -229,10 +224,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
     radial-gradient(ellipse 80% 60% at 50% 0%, var(--berry-soft), transparent 55%),
     var(--cream);
 }
-.invite-inner {
-  max-width: var(--container);
-  margin-inline: auto;
-}
+.invite-inner { max-width: var(--container); margin-inline: auto; }
 .invite-kicker {
   display: inline-block;
   font-size: 0.82rem;
@@ -267,7 +259,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   justify-content: center;
 }
 
-/* ——— 2. JAR ——— */
 .jar {
   padding: var(--space-16) 0;
   background: var(--paper);
@@ -335,7 +326,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   border-radius: var(--radius-full);
 }
 
-/* ——— 3. SEASON ——— */
+/* Season — image + price */
 .season {
   padding: var(--space-16) 0 var(--space-20);
 }
@@ -366,50 +357,86 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 }
 .season-head p { color: var(--muted); }
 .season-list {
-  max-width: 36rem;
+  max-width: 40rem;
   margin: 0 auto;
   display: grid;
-  gap: var(--space-3);
+  gap: var(--space-4);
 }
 .season-item {
   display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto;
-  gap: 0.15rem var(--space-4);
+  grid-template-columns: 96px 1fr;
+  gap: var(--space-5);
   align-items: center;
-  padding: var(--space-5) var(--space-6);
+  padding: var(--space-4);
   background: var(--paper);
   border: 2.5px solid var(--line);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
+  transition: transform var(--ease), box-shadow var(--ease);
 }
-.season-item.is-off { opacity: 0.72; }
+.season-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.season-item.is-off { opacity: 0.7; }
+.season-media {
+  width: 96px;
+  height: 96px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 2px solid var(--line);
+  flex-shrink: 0;
+}
+.season-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.season-body { min-width: 0; }
+.season-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: 0.2rem;
+}
 .season-name {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.65rem;
+  font-size: 1.55rem;
   color: var(--berry);
-  grid-column: 1;
+  line-height: 1.1;
 }
 .season-note {
-  grid-column: 1;
   font-size: 0.95rem;
   color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+.season-price {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
 }
 .season-status {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  padding: 0.45rem 0.85rem;
+  padding: 0.4rem 0.75rem;
   border-radius: var(--radius-full);
+  white-space: nowrap;
 }
 .season-status.on { background: #DCE8DC; color: var(--success); }
 .season-status.off { background: #EFE4D4; color: var(--muted); }
+.season-footnote {
+  max-width: 40rem;
+  margin: var(--space-8) auto 0;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
 
-/* ——— 4. PATH ——— */
 .path {
   padding: var(--space-16) 0 var(--space-20);
   background: var(--kraft);
@@ -481,7 +508,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 .path-step p { color: var(--muted); font-size: 1rem; }
 .path-cta { text-align: center; }
 
-/* ——— 5. VOICES ——— */
 .voices {
   padding: var(--space-16) 0 var(--space-20);
   background: var(--paper);
@@ -550,7 +576,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   color: var(--muted);
 }
 
-/* ——— 6. DOOR ——— */
 .door {
   padding: var(--space-16) 0 var(--space-20);
 }
@@ -595,7 +620,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   color: rgba(255, 252, 247, 0.65);
 }
 
-/* Footer */
 .footer {
   background: var(--ink);
   color: var(--cream);
@@ -628,7 +652,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 .footer-nav a:hover { opacity: 1; background: rgba(255,255,255,0.08); }
 .footer-note { font-size: 0.88rem; opacity: 0.55; }
 
-/* Sticky */
 .sticky-cta {
   display: block;
   position: fixed;
@@ -672,6 +695,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   .jar-copy { text-align: left; margin: 0; }
   .jar-points { justify-content: flex-start; }
 
+  .season-list { max-width: 44rem; }
+  .season-item { grid-template-columns: 112px 1fr; padding: var(--space-5); }
+  .season-media { width: 112px; height: 112px; }
+
   .path-steps { grid-template-columns: 1fr; max-width: 36rem; }
   .voices-grid { grid-template-columns: 1fr 1fr; }
   .voices-grid .voice:last-child:nth-child(odd) {
@@ -690,6 +717,11 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   .nav-brand span { font-size: 1.7rem; }
 
   .jar-grid { gap: var(--space-16); }
+  .season-list {
+    max-width: none;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+  }
   .path-steps {
     grid-template-columns: repeat(3, 1fr);
     max-width: none;
@@ -715,9 +747,9 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .btn, .nav-links a { transition: none; }
+  .btn, .nav-links a, .season-item { transition: none; }
   .btn-primary:hover, .btn-primary:active,
-  .btn-on-dark:hover { transform: none; }
+  .btn-on-dark:hover, .season-item:hover { transform: none; }
 }
 
 body.has-sticky-cta { padding-bottom: 6rem; }
