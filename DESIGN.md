@@ -1,45 +1,27 @@
-# DESIGN.md — Dulces de Mamá (v3 radical)
+# DESIGN.md — Dulces de Mamá (v4 RECHONCHO)
 
-Agent-readable design system (Stitch / awesome-design-md). Brand tokens locked; layout and components evolved for photo-first craft landing.
+UI gorda, redonda y cálida. awesome-design-md + craft argentino.
 
-## 1. Visual Theme
+## Tema
+Rechoncho = formas plump, radios grandes, botones gruesos, padding generoso, bordes 2–3px, sombras suaves con “piso” en CTAs.
 
-Warm kitchen-table brand. Refined craft, not rustic fair. Photography + soft color blocks + generous whitespace.
+## Palette
+berry `#A61B34` · peach `#C97B5D` · cream `#F6F0E6` · paper `#FFFCF7` · kraft `#E6D8C0` · ink `#2C2118` · muted `#6B5748`
 
-## 2. Palette (unchanged)
+## Type
+Amatic SC (display) + Cabin (body). Body base 18px.
 
-berry `#A61B34` · berry-hover `#861428` · peach `#C97B5D` · cream `#F7F3EB` · paper `#FFFCF7` · kraft `#E8DCC8` · ink `#2C2118` · muted `#6B5748` · line `#E0D4C0` · success `#5C7A56`
+## Componentes rechonchos
+- Botones: min-height 56–62px, pill total, sombra inferior tipo “goma”
+- Cards: radius 22–28px, border 2.5px, padding generoso
+- Nav: 76–84px alto, logo 48–52px
+- Badges y trust chips: pills gordas
+- Contact: panel berry con borde y sombra piso
 
-## 3. Typography
+## Breakpoints
+768 / 1024 / 1280
 
-Display: Amatic SC 700 · Body: Cabin 400–600
-
-## 4. Components (v3)
-
-- **Nav**: sticky, blur, pill links, WhatsApp CTA ≥768px
-- **Hero**: radial soft wash, large display type, trust chips, photo frame with caption
-- **Story**: editorial title + 2-col body + pull quote
-- **Flavors**: card grid with left accent stripe (tone-berry/peach/kraft)
-- **Values**: soft gradient cards on kraft band
-- **Testimonials**: large italic quotes, author + place footer
-- **Steps**: numbered cards in 1→2→4 col grid
-- **Contact**: full berry panel, light CTA, split desktop
-- **Sticky CTA**: mobile only (<768)
-
-## 5. Layout
-
-Section padding 64→80→96px. Container 72rem. Breakpoints: 768 / 1024 / 1280.
-
-## 6. Elevation
-
-sm cards · md hover · lg hero/contact. Soft only.
-
-## 7. Do / Don't
-
-Do: Amatic+Cabin, pill CTAs, photo-forward, Spanish cercano.  
-Don't: foreign palettes, Inter-only, emoji icons, hide WhatsApp.
-
-## 8. Agent prompts
-
-- Follow this DESIGN.md and src/styles/global.css as source of truth.
-- Keep berry/peach/cream; improve structure and rhythm only.
+## Do
+Gordo, suave, cercano, WhatsApp visible.
+## Don't
+UI flaca, radios 4px, botones 36px, bordes 1px frágiles.
