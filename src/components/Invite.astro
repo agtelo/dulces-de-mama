@@ -1,19 +1,22 @@
 ---
-const wa = 'https://wa.me/54911XXXXXXXX?text=Hola!%20Quiero%20pedir%20Dulces%20de%20Mamá';
+/** Reemplazá 54911XXXXXXXX por el número real (sin + ni 0). */
+const wa =
+  'https://wa.me/54911XXXXXXXX?text=' +
+  encodeURIComponent('Hola! Vi Dulces de Mamá y quiero pedir');
 ---
 
 <section class="invite" id="inicio">
   <div class="container invite-inner">
-    <p class="invite-kicker">Una invitación de la cocina de casa</p>
+    <p class="invite-kicker">De la cocina de mamá</p>
     <h1>Hola. Acá se hace mermelada con tiempo.</h1>
     <p class="invite-lead">
-      No es una fábrica ni un local. Es la cocina de mamá, abierta
-      para amigos y conocidos. Lotes chicos, fruta de temporada,
-      y el mismo cariño de siempre.
+      No es fábrica ni local. Es la cocina de casa, abierta para amigos y
+      conocidos. Lotes chicos, fruta de temporada, y el mismo cariño de siempre.
+      Ideal para el mate, el desayuno del domingo o un regalo de verdad.
     </p>
     <div class="invite-actions">
       <a class="btn btn-primary" href={wa} target="_blank" rel="noopener">Quiero pedir</a>
-      <a class="btn btn-ghost" href="#frasco">Ver el frasco</a>
+      <a class="btn btn-ghost" href="#temporada">Ver qué hay</a>
     </div>
   </div>
 </section>

@@ -1,6 +1,8 @@
 ---
 const base = import.meta.env.BASE_URL;
-const wa = 'https://wa.me/54911XXXXXXXX?text=Hola!%20Quiero%20pedir%20Dulces%20de%20Mamá';
+const wa =
+  'https://wa.me/54911XXXXXXXX?text=' +
+  encodeURIComponent('Hola! Quiero pedir Dulces de Mamá');
 ---
 
 <header class="nav">
@@ -22,7 +24,7 @@ const wa = 'https://wa.me/54911XXXXXXXX?text=Hola!%20Quiero%20pedir%20Dulces%20d
       <a href="#puerta">Escribime</a>
     </nav>
 
-    <a class="btn btn-primary nav-cta" href={wa} target="_blank" rel="noopener">WhatsApp</a>
+    <a class="btn btn-primary nav-cta" href={wa} target="_blank" rel="noopener">Escribime</a>
 
     <button
       class="nav-toggle"
@@ -43,7 +45,7 @@ const wa = 'https://wa.me/54911XXXXXXXX?text=Hola!%20Quiero%20pedir%20Dulces%20d
     <a href="#temporada">Temporada</a>
     <a href="#pedir">Cómo pedir</a>
     <a href="#puerta">Escribime</a>
-    <a class="btn btn-primary" href={wa} target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    <a class="btn btn-primary" href={wa} target="_blank" rel="noopener">Escribime por WhatsApp</a>
   </div>
 </header>
 

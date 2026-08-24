@@ -1,12 +1,48 @@
 ---
-/** Precios orientativos (frasco ~350–400 g). */
+/** Precios orientativos (frasco ~350–400 g). Confirmamos por WhatsApp. */
 const flavors = [
-  { name: 'Frutilla', note: 'Intensa, con trocitos', price: 9500, on: true },
-  { name: 'Durazno', note: 'Suave, de desayuno', price: 9000, on: true },
-  { name: 'Membrillo', note: 'Tradicional y sedoso', price: 9000, on: true },
-  { name: 'Naranja', note: 'Cítrica, ideal con queso', price: 9500, on: false },
-  { name: 'Frutos rojos', note: 'Cuando hay berries', price: 11000, on: false },
-  { name: 'Manzana', note: 'Con canela, de otoño', price: 9000, on: false },
+  {
+    name: 'Frutilla',
+    note: 'Intensa, con trocitos',
+    pair: 'Tostadas, yogurt o facturas',
+    price: 9500,
+    on: true,
+  },
+  {
+    name: 'Durazno',
+    note: 'Suave, de desayuno',
+    pair: 'Mate y pan casero',
+    price: 9000,
+    on: true,
+  },
+  {
+    name: 'Membrillo',
+    note: 'Tradicional y sedoso',
+    pair: 'Queso fresco o postre',
+    price: 9000,
+    on: true,
+  },
+  {
+    name: 'Naranja',
+    note: 'Cítrica, ideal con queso',
+    pair: 'Budín o tabla de quesos',
+    price: 9500,
+    on: false,
+  },
+  {
+    name: 'Frutos rojos',
+    note: 'Cuando hay berries',
+    pair: 'Yogurt o helado',
+    price: 11000,
+    on: false,
+  },
+  {
+    name: 'Manzana',
+    note: 'Con canela, de otoño',
+    pair: 'Tostadas o postre caliente',
+    price: 9000,
+    on: false,
+  },
 ];
 
 const formatPrice = (n: number) =>
@@ -23,7 +59,8 @@ const formatPrice = (n: number) =>
       <p class="season-kicker">Esta temporada</p>
       <h2>Lo que hay ahora en la cocina</h2>
       <p>
-        Frasco de vidrio ~350–400 g. Precios orientativos; confirmamos por WhatsApp.
+        Frasco de vidrio ~350–400 g. Precios orientativos: los confirmamos por
+        WhatsApp. La fruta manda; si no hay, la próxima tanda te aviso.
       </p>
     </div>
     <ul class="season-list">
@@ -37,14 +74,16 @@ const formatPrice = (n: number) =>
               </span>
             </div>
             <p class="season-note">{f.note}</p>
+            <p class="season-pair">Con qué va: {f.pair}</p>
             <p class="season-price">{formatPrice(f.price)}</p>
           </div>
         </li>
       ))}
     </ul>
     <p class="season-footnote">
-      Referencia mercado: industrial ~$2–6 mil · artesanal de marca ~$7–11 mil ·
-      casero / lote chico suele ir de $8 a $12 mil el frasco.
+      Precios de referencia del mercado: industrial ~$2–6 mil · artesanal de marca
+      ~$7–11 mil · casero / lote chico suele ir de $8 a $12 mil el frasco.
+      Combo a convenir por WhatsApp (ej. 2 o 3 sabores).
     </p>
   </div>
 </section>

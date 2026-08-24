@@ -1,6 +1,8 @@
 ---
-const wa = 'https://wa.me/54911XXXXXXXX?text=Hola!%20Quiero%20pedir%20Dulces%20de%20Mamá';
+const wa =
+  'https://wa.me/54911XXXXXXXX?text=' +
+  encodeURIComponent('Hola! Quiero pedir Dulces de Mamá');
 ---
 <div class="sticky-cta">
-  <a class="btn btn-primary" href={wa} target="_blank" rel="noopener">Pedir por WhatsApp</a>
+  <a class="btn btn-primary" href={wa} target="_blank" rel="noopener">Escribime</a>
 </div>

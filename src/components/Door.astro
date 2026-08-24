@@ -1,5 +1,7 @@
 ---
-const wa = 'https://wa.me/54911XXXXXXXX?text=Hola!%20Quiero%20consultar%20por%20Dulces%20de%20Mamá';
+const wa =
+  'https://wa.me/54911XXXXXXXX?text=' +
+  encodeURIComponent('Hola! Quiero consultar por Dulces de Mamá');
 ---
 
 <section class="door" id="puerta">
@@ -9,10 +11,12 @@ const wa = 'https://wa.me/54911XXXXXXXX?text=Hola!%20Quiero%20consultar%20por%20
       <h2>Si te late, escribime.</h2>
       <p>
         Consultas, encargues, regalos o solo preguntar qué hay esta semana.
-        Respondemos con calma.
+        Respondemos con calma, sin apuro de tienda.
       </p>
-      <a class="btn btn-on-dark btn-lg" href={wa} target="_blank" rel="noopener">Abrir WhatsApp</a>
-      <p class="door-meta">Buenos Aires · CABA y alrededores · Solo círculo cercano</p>
+      <a class="btn btn-on-dark btn-lg" href={wa} target="_blank" rel="noopener">Escribime por WhatsApp</a>
+      <p class="door-meta">
+        Buenos Aires · CABA y GBA · Retiro a coordinar o envío a convenir · Solo círculo cercano
+      </p>
     </div>
   </div>
 </section>

@@ -1,16 +1,31 @@
 ---
-const wa = 'https://wa.me/54911XXXXXXXX?text=Hola!%20Quiero%20conocer%20los%20Dulces%20de%20Mamá';
+const wa =
+  'https://wa.me/54911XXXXXXXX?text=' +
+  encodeURIComponent('Hola! Quiero pedir Dulces de Mamá');
+
 const steps = [
-  { n: '1', title: 'Me escribís', text: 'Por WhatsApp, contame qué te gusta' },
-  { n: '2', title: 'Te confirmo', text: 'Si hay stock y cómo coordinamos' },
-  { n: '3', title: 'Te llega', text: 'En CABA o nos encontramos' },
+  {
+    n: '1',
+    title: 'Me escribís',
+    text: 'Por WhatsApp, decime qué sabor querés (o preguntá qué hay).',
+  },
+  {
+    n: '2',
+    title: 'Te confirmo',
+    text: 'Stock, precio final y si preferís retiro o envío.',
+  },
+  {
+    n: '3',
+    title: 'Coordinamos',
+    text: 'Retiro por zona o envío a convenir. Transferencia o Mercado Pago.',
+  },
 ];
 ---
 
 <section class="path" id="pedir">
   <div class="container">
     <div class="path-head">
-      <p class="path-kicker">Sin carrito ni checkout</p>
+      <p class="path-kicker">Sin carrito ni registro</p>
       <h2>Cómo se pide</h2>
       <p>Todo se resuelve hablando. Como entre conocidos.</p>
     </div>
@@ -25,8 +40,17 @@ const steps = [
         </li>
       ))}
     </ol>
+    <div class="path-extra">
+      <p>
+        <strong>Retiro:</strong> a coordinar en CABA / GBA.
+        <strong> Envío:</strong> cadete o moto a convenir.
+      </p>
+      <p>
+        <strong>Pago:</strong> transferencia o Mercado Pago cuando confirmamos el pedido.
+      </p>
+    </div>
     <div class="path-cta">
-      <a class="btn btn-primary btn-lg" href={wa} target="_blank" rel="noopener">Empezar por WhatsApp</a>
+      <a class="btn btn-primary btn-lg" href={wa} target="_blank" rel="noopener">Escribime por WhatsApp</a>
     </div>
   </div>
 </section>
