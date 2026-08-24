@@ -326,7 +326,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   border-radius: var(--radius-full);
 }
 
-/* Season — image + price */
 .season {
   padding: var(--space-16) 0 var(--space-20);
 }
@@ -363,11 +362,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   gap: var(--space-4);
 }
 .season-item {
-  display: grid;
-  grid-template-columns: 96px 1fr;
-  gap: var(--space-5);
-  align-items: center;
-  padding: var(--space-4);
+  display: block;
+  padding: var(--space-5) var(--space-6);
   background: var(--paper);
   border: 2.5px solid var(--line);
   border-radius: var(--radius-lg);
@@ -378,27 +374,14 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
-.season-item.is-off { opacity: 0.7; }
-.season-media {
-  width: 96px;
-  height: 96px;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  border: 2px solid var(--line);
-  flex-shrink: 0;
-}
-.season-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.season-item.is-off { opacity: 0.72; }
 .season-body { min-width: 0; }
 .season-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-3);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.25rem;
 }
 .season-name {
   font-family: var(--font-display);
@@ -410,7 +393,13 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 .season-note {
   font-size: 0.95rem;
   color: var(--muted);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.2rem;
+}
+.season-pair {
+  font-size: 0.9rem;
+  color: var(--peach);
+  font-weight: 600;
+  margin-bottom: 0.45rem;
 }
 .season-price {
   font-size: 1.15rem;
@@ -470,7 +459,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   display: grid;
   gap: var(--space-4);
   max-width: 40rem;
-  margin: 0 auto var(--space-10);
+  margin: 0 auto var(--space-6);
 }
 .path-step {
   display: grid;
@@ -506,6 +495,19 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   margin-bottom: 0.25rem;
 }
 .path-step p { color: var(--muted); font-size: 1rem; }
+.path-extra {
+  max-width: 40rem;
+  margin: 0 auto var(--space-8);
+  padding: var(--space-5) var(--space-6);
+  background: var(--paper);
+  border: 2px dashed var(--line);
+  border-radius: var(--radius-md);
+  font-size: 0.98rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.path-extra p + p { margin-top: 0.5rem; }
+.path-extra strong { color: var(--ink); }
 .path-cta { text-align: center; }
 
 .voices {
@@ -535,6 +537,11 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   font-weight: 700;
   font-size: clamp(2.2rem, 5.5vw, 3rem);
   color: var(--berry);
+}
+.voices-lead {
+  margin-top: var(--space-3);
+  color: var(--muted);
+  font-size: 0.98rem;
 }
 .voices-grid {
   display: grid;
@@ -696,10 +703,9 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   .jar-points { justify-content: flex-start; }
 
   .season-list { max-width: 44rem; }
-  .season-item { grid-template-columns: 112px 1fr; padding: var(--space-5); }
-  .season-media { width: 112px; height: 112px; }
 
   .path-steps { grid-template-columns: 1fr; max-width: 36rem; }
+  .path-extra { max-width: 36rem; }
   .voices-grid { grid-template-columns: 1fr 1fr; }
   .voices-grid .voice:last-child:nth-child(odd) {
     grid-column: 1 / -1;
@@ -726,6 +732,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
     grid-template-columns: repeat(3, 1fr);
     max-width: none;
   }
+  .path-extra { max-width: none; }
   .voices-grid { grid-template-columns: repeat(3, 1fr); }
   .voices-grid .voice:last-child:nth-child(odd) {
     grid-column: auto;
