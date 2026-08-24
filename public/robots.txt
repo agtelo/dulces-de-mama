@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitio de una sola página — círculo cercano
+Sitemap: https://dulces-de-mama.vercel.app/sitemap-index.xml
