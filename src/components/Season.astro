@@ -1,12 +1,69 @@
 ---
+/**
+ * Precios orientativos (frasco ~350–400 g).
+ * Referencia mercado AR 2025–26:
+ * - Supermercado industrial ~$2.000–$6.000
+ * - Artesanal (El Brocal, Las Quinas, Beepure) ~$7.000–$11.000
+ * - Casero / feria / lote chico: suele ubicarse en $8.000–$12.000+
+ * Posicionamos Dulces de Mamá en el rango casero cercano.
+ */
 const flavors = [
-  { name: 'Frutilla', note: 'Intensa, con trocitos', on: true },
-  { name: 'Durazno', note: 'Suave, de desayuno', on: true },
-  { name: 'Membrillo', note: 'Tradicional y sedoso', on: true },
-  { name: 'Naranja', note: 'Para el queso', on: false },
-  { name: 'Frutos rojos', note: 'Cuando hay berries', on: false },
-  { name: 'Manzana', note: 'Con canela, de otoño', on: false },
+  {
+    name: 'Frutilla',
+    note: 'Intensa, con trocitos',
+    price: 9500,
+    on: true,
+    img: 'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&h=400&fit=crop&q=80',
+    alt: 'Frutillas frescas',
+  },
+  {
+    name: 'Durazno',
+    note: 'Suave, de desayuno',
+    price: 9000,
+    on: true,
+    img: 'https://images.unsplash.com/photo-1629828874514-8c0f3b8a8b0f?w=400&h=400&fit=crop&q=80',
+    alt: 'Duraznos maduros',
+  },
+  {
+    name: 'Membrillo',
+    note: 'Tradicional y sedoso',
+    price: 9000,
+    on: true,
+    img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=400&fit=crop&q=80',
+    alt: 'Dulce de membrillo',
+  },
+  {
+    name: 'Naranja',
+    note: 'Cítrica, ideal con queso',
+    price: 9500,
+    on: false,
+    img: 'https://images.unsplash.com/photo-1547514701-42782101795e?w=400&h=400&fit=crop&q=80',
+    alt: 'Naranjas',
+  },
+  {
+    name: 'Frutos rojos',
+    note: 'Cuando hay berries',
+    price: 11000,
+    on: false,
+    img: 'https://images.unsplash.com/photo-1498557850523-fd3d7c2e9a6c?w=400&h=400&fit=crop&q=80',
+    alt: 'Frutos rojos',
+  },
+  {
+    name: 'Manzana',
+    note: 'Con canela, de otoño',
+    price: 9000,
+    on: false,
+    img: 'https://images.unsplash.com/photo-1560806887-1e4cd0b21ca2?w=400&h=400&fit=crop&q=80',
+    alt: 'Manzanas',
+  },
 ];
+
+const formatPrice = (n: number) =>
+  new Intl.NumberFormat('es-AR', {
+    style: 'currency',
+    currency: 'ARS',
+    maximumFractionDigits: 0,
+  }).format(n);
 ---
 
 <section class="season" id="temporada">
@@ -14,18 +71,32 @@ const flavors = [
     <div class="season-head">
       <p class="season-kicker">Esta temporada</p>
       <h2>Lo que hay ahora en la cocina</h2>
-      <p>Lo demás aparece cuando la fruta lo permite.</p>
+      <p>
+        Frasco de vidrio ~350–400 g. Precios orientativos; confirmamos por WhatsApp.
+      </p>
     </div>
     <ul class="season-list">
       {flavors.map((f) => (
         <li class={`season-item ${f.on ? 'is-on' : 'is-off'}`}>
-          <div class="season-name">{f.name}</div>
-          <div class="season-note">{f.note}</div>
-          <div class={`season-status ${f.on ? 'on' : 'off'}`}>
-            {f.on ? 'Hay' : 'Después'}
+          <div class="season-media">
+            <img src={f.img} alt={f.alt} width="120" height="120" loading="lazy" />
+          </div>
+          <div class="season-body">
+            <div class="season-top">
+              <span class="season-name">{f.name}</span>
+              <span class={`season-status ${f.on ? 'on' : 'off'}`}>
+                {f.on ? 'Hay' : 'Después'}
+              </span>
+            </div>
+            <p class="season-note">{f.note}</p>
+            <p class="season-price">{formatPrice(f.price)}</p>
           </div>
         </li>
       ))}
     </ul>
+    <p class="season-footnote">
+      Referencia mercado: industrial ~$2–6 mil · artesanal de marca ~$7–11 mil ·
+      casero / lote chico suele ir de $8 a $12 mil el frasco.
+    </p>
   </div>
 </section>
