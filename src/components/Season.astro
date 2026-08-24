@@ -66,6 +66,7 @@ const formatPrice = (n: number) =>
     <ul class="season-list">
       {flavors.map((f) => (
         <li class={`season-item ${f.on ? 'is-on' : 'is-off'}`}>
+          <div class="season-label-bar" aria-hidden="true"></div>
           <div class="season-body">
             <div class="season-top">
               <span class="season-name">{f.name}</span>
@@ -74,7 +75,7 @@ const formatPrice = (n: number) =>
               </span>
             </div>
             <p class="season-note">{f.note}</p>
-            <p class="season-pair">Con qué va: {f.pair}</p>
+            <p class="season-pair">{f.pair}</p>
             <p class="season-price">{formatPrice(f.price)}</p>
           </div>
         </li>
@@ -82,3 +83,41 @@ const formatPrice = (n: number) =>
     </ul>
   </div>
 </section>
+
+<style>
+  /* Cards tipo etiqueta de frasco */
+  .season-item {
+    display: grid;
+    grid-template-columns: 8px 1fr;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+    background: var(--paper);
+    border: 2px solid var(--line);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+  }
+  .season-label-bar {
+    background: var(--berry);
+    min-height: 100%;
+  }
+  .season-item.is-off .season-label-bar {
+    background: var(--kraft-deep);
+  }
+  .season-body {
+    padding: var(--space-5) var(--space-5) var(--space-5) var(--space-5);
+  }
+  .season-pair {
+    font-size: 0.88rem;
+    color: var(--muted);
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 0.4rem;
+  }
+  .season-pair::before {
+    content: 'Con qué va · ';
+    font-style: normal;
+    font-weight: 600;
+    color: var(--peach);
+  }
+</style>

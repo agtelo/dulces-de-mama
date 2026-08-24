@@ -12,6 +12,9 @@ const base = import.meta.env.BASE_URL;
         height="853"
         loading="lazy"
       />
+      <figcaption class="jar-caption">
+        Foto de producto · ideal reemplazar con luz de ventana y mesa real
+      </figcaption>
     </figure>
     <div class="jar-copy">
       <p class="jar-label">El frasco</p>
@@ -31,3 +34,20 @@ const base = import.meta.env.BASE_URL;
     </div>
   </div>
 </section>
+
+<style>
+  .jar-photo {
+    position: relative;
+  }
+  .jar-caption {
+    margin-top: var(--space-3);
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+    .jar-caption {
+      text-align: left;
+    }
+  }
+</style>
