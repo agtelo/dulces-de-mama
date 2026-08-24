@@ -1,0 +1,31 @@
+---
+const flavors = [
+  { name: 'Frutilla', note: 'Intensa, con trocitos', on: true },
+  { name: 'Durazno', note: 'Suave, de desayuno', on: true },
+  { name: 'Membrillo', note: 'Tradicional y sedoso', on: true },
+  { name: 'Naranja', note: 'Para el queso', on: false },
+  { name: 'Frutos rojos', note: 'Cuando hay berries', on: false },
+  { name: 'Manzana', note: 'Con canela, de otoño', on: false },
+];
+---
+
+<section class="season" id="temporada">
+  <div class="container">
+    <div class="season-head">
+      <p class="season-kicker">Esta temporada</p>
+      <h2>Lo que hay ahora en la cocina</h2>
+      <p>Lo demás aparece cuando la fruta lo permite.</p>
+    </div>
+    <ul class="season-list">
+      {flavors.map((f) => (
+        <li class={`season-item ${f.on ? 'is-on' : 'is-off'}`}>
+          <div class="season-name">{f.name}</div>
+          <div class="season-note">{f.note}</div>
+          <div class={`season-status ${f.on ? 'on' : 'off'}`}>
+            {f.on ? 'Hay' : 'Después'}
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

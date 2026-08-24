@@ -1,14 +1,6 @@
 ---
 const base = import.meta.env.BASE_URL;
 const wa = 'https://wa.me/54911XXXXXXXX?text=Hola!%20Quiero%20pedir%20Dulces%20de%20Mamá';
-const links = [
-  { href: '#historia', label: 'Historia' },
-  { href: '#sabores', label: 'Sabores' },
-  { href: '#valores', label: 'Valores' },
-  { href: '#amigos', label: 'Amigos' },
-  { href: '#pedir', label: 'Cómo pedir' },
-  { href: '#contacto', label: 'Contacto' },
-];
 ---
 
 <header class="nav">
@@ -19,7 +11,10 @@ const links = [
     </a>
 
     <nav class="nav-links" aria-label="Principal">
-      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      <a href="#frasco">El frasco</a>
+      <a href="#temporada">Temporada</a>
+      <a href="#pedir">Cómo pedir</a>
+      <a href="#puerta">Escribime</a>
     </nav>
 
     <a class="btn btn-primary nav-cta" href={wa} target="_blank" rel="noopener">WhatsApp</a>
@@ -32,14 +27,17 @@ const links = [
       aria-controls="nav-panel"
       id="nav-toggle"
     >
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
         <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"></path>
       </svg>
     </button>
   </div>
 
   <div class="nav-panel" id="nav-panel" hidden>
-    {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    <a href="#frasco">El frasco</a>
+    <a href="#temporada">Temporada</a>
+    <a href="#pedir">Cómo pedir</a>
+    <a href="#puerta">Escribime</a>
     <a class="btn btn-primary" href={wa} target="_blank" rel="noopener">Pedir por WhatsApp</a>
   </div>
 </header>

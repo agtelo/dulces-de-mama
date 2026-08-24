@@ -1,0 +1,39 @@
+---
+const voices = [
+  {
+    text: 'La de frutilla es igual a la que hacía mi abuela. Pedí tres y se fueron en una semana.',
+    who: 'Laura',
+    where: 'Palermo',
+  },
+  {
+    text: 'Se nota el tiempo. El membrillo es el mejor que probé en mucho.',
+    who: 'Martín',
+    where: 'Villa Crespo',
+  },
+  {
+    text: 'Pedí para regalar y me quedé con uno. Sabor de casa de verdad.',
+    who: 'Sofía',
+    where: 'Caballito',
+  },
+];
+---
+
+<section class="voices" id="voces">
+  <div class="container">
+    <div class="voices-head">
+      <p class="voices-kicker">De la mesa de otros</p>
+      <h2>Lo que cuentan los amigos</h2>
+    </div>
+    <div class="voices-grid">
+      {voices.map((v) => (
+        <blockquote class="voice">
+          <p>“{v.text}”</p>
+          <footer>
+            <cite>{v.who}</cite>
+            <span>{v.where}</span>
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+  </div>
+</section>

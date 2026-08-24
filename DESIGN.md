@@ -1,27 +1,39 @@
-# DESIGN.md — Dulces de Mamá (v4 RECHONCHO)
+# DESIGN.md — Dulces de Mamá
 
-UI gorda, redonda y cálida. awesome-design-md + craft argentino.
+## Concepto del sitio (desde cero)
 
-## Tema
-Rechoncho = formas plump, radios grandes, botones gruesos, padding generoso, bordes 2–3px, sombras suaves con “piso” en CTAs.
+**Nombre del concepto:** *Invitación a la mesa*
 
-## Palette
-berry `#A61B34` · peach `#C97B5D` · cream `#F6F0E6` · paper `#FFFCF7` · kraft `#E6D8C0` · ink `#2C2118` · muted `#6B5748`
+No es un e-commerce ni una landing de marketing.
+Es una **invitación personal** a pedir mermelada de la cocina de mamá,
+como si te pasaran un frasco en la sobremesa.
 
-## Type
-Amatic SC (display) + Cabin (body). Body base 18px.
+### Narrativa
+1. **La invitación** — te reciben
+2. **El frasco** — el producto, sin ruido
+3. **Esta temporada** — qué hay ahora
+4. **Cómo se pide** — solo WhatsApp
+5. **Voces de la mesa** — amigos, no clientes
+6. **La puerta** — un solo lugar para escribir
 
-## Componentes rechonchos
-- Botones: min-height 56–62px, pill total, sombra inferior tipo “goma”
-- Cards: radius 22–28px, border 2.5px, padding generoso
-- Nav: 76–84px alto, logo 48–52px
-- Badges y trust chips: pills gordas
-- Contact: panel berry con borde y sombra piso
+### Principios
+- Un solo camino: WhatsApp
+- Pocas secciones, más aire
+- Foto del frasco como centro emocional
+- Tono: argentino, cercano, sin pretensiones
+- UI cálida y rechoncha (radios grandes, botones gordos)
 
-## Breakpoints
-768 / 1024 / 1280
+### Palette
+berry `#A61B34` · peach `#C97B5D` · cream `#F6F0E6` · paper `#FFFCF7` · kraft `#E6D8C0` · ink `#2C2118` · muted `#6B5748` · line `#DCCFB8`
 
-## Do
-Gordo, suave, cercano, WhatsApp visible.
-## Don't
-UI flaca, radios 4px, botones 36px, bordes 1px frágiles.
+### Type
+Amatic SC (display) · Cabin (body, 18px)
+
+### Shape
+Radios 16–36px · botones pill 56px+ · bordes 2px · sombras suaves
+
+### Breakpoints
+768 · 1024 · 1280
+
+### Don't
+Menús largos · catálogo e-commerce · precios en grilla · stock fake · copy corporativo

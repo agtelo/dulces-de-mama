@@ -1,0 +1,32 @@
+---
+const wa = 'https://wa.me/54911XXXXXXXX?text=Hola!%20Quiero%20conocer%20los%20Dulces%20de%20Mamá';
+const steps = [
+  { n: '1', title: 'Me escribís', text: 'Por WhatsApp, contame qué te gusta' },
+  { n: '2', title: 'Te confirmo', text: 'Si hay stock y cómo coordinamos' },
+  { n: '3', title: 'Te llega', text: 'En CABA o nos encontramos' },
+];
+---
+
+<section class="path" id="pedir">
+  <div class="container">
+    <div class="path-head">
+      <p class="path-kicker">Sin carrito ni checkout</p>
+      <h2>Cómo se pide</h2>
+      <p>Todo se resuelve hablando. Como entre conocidos.</p>
+    </div>
+    <ol class="path-steps">
+      {steps.map((s) => (
+        <li class="path-step">
+          <span class="path-num" aria-hidden="true">{s.n}</span>
+          <div>
+            <strong>{s.title}</strong>
+            <p>{s.text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+    <div class="path-cta">
+      <a class="btn btn-primary btn-lg" href={wa} target="_blank" rel="noopener">Empezar por WhatsApp</a>
+    </div>
+  </div>
+</section>

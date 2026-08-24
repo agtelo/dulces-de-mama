@@ -1,0 +1,31 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<section class="jar" id="frasco">
+  <div class="container jar-grid">
+    <figure class="jar-photo">
+      <img
+        src={`${base}img/foto-producto.jpg`}
+        alt="Frasco de mermelada casera sobre mesa de madera"
+        width="640"
+        height="853"
+        loading="lazy"
+      />
+    </figure>
+    <div class="jar-copy">
+      <p class="jar-label">El frasco</p>
+      <h2>Sale de la olla, no de una línea de producción.</h2>
+      <p>
+        Fruta buena, azúcar, tiempo y manos. Sin conservantes raros.
+        Cada lote es chico a propósito: así se controla el punto
+        y se mantiene el sabor de casa.
+      </p>
+      <ul class="jar-points">
+        <li>Recetas de familia</li>
+        <li>100% natural</li>
+        <li>Hecho en Buenos Aires</li>
+      </ul>
+    </div>
+  </div>
+</section>
