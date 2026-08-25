@@ -46,7 +46,8 @@ const flavors = [
   },
 ];
 
-const hasAny = flavors.some((f) => f.on);
+const listed = [...flavors].sort((a, b) => Number(b.on) - Number(a.on));
+const hasAny = listed.some((f) => f.on);
 
 const formatPrice = (n: number) =>
   new Intl.NumberFormat('es-AR', {
@@ -88,7 +89,7 @@ const waRestock =
     }
 
     <ul class="season-list">
-      {flavors.map((f) => (
+      {listed.map((f) => (
         <li class={`season-item ${f.on ? 'is-on' : 'is-off'}`}>
           <div class="season-label-bar" aria-hidden="true"></div>
           <div class="season-body">
@@ -136,6 +137,9 @@ const waRestock =
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
   }
+  .season-item:active {
+    transform: scale(0.99);
+  }
   .season-label-bar {
     background: var(--berry);
     min-height: 100%;
@@ -178,9 +182,13 @@ const waRestock =
     text-decoration: underline;
     text-underline-offset: 3px;
     white-space: nowrap;
+    touch-action: manipulation;
   }
   .season-order:hover {
     color: var(--berry-hover);
+  }
+  .season-order:visited {
+    color: #7a3144;
   }
   .season-order.is-muted {
     color: var(--muted);
