@@ -7,7 +7,7 @@ const wa =
 
 <header class="nav">
   <div class="container nav-inner">
-    <a href="#inicio" class="nav-brand">
+    <a href="/" class="nav-brand">
       <img
         src={`${base}img/icono-frasco.jpg`}
         alt="Logo Dulces de Mamá — frasco de mermelada"
@@ -18,9 +18,9 @@ const wa =
     </a>
 
     <nav class="nav-links" aria-label="Principal">
-      <a href="#frasco">Frasco</a>
-      <a href="#temporada">Temporada</a>
-      <a href="#pedir">Pedir</a>
+      <a href="#frasco" data-nav="frasco">Frasco</a>
+      <a href="#temporada" data-nav="temporada">Temporada</a>
+      <a href="#pedir" data-nav="pedir">Pedir</a>
     </nav>
 
     <a class="btn btn-primary nav-cta" href={wa} target="_blank" rel="noopener">Escribime</a>
@@ -49,10 +49,13 @@ const wa =
 </header>
 
 <style>
-  /* Tablet 768–1023: evitar textos partidos y saturación */
   .nav-links a {
     white-space: nowrap;
     flex-shrink: 0;
+  }
+  .nav-links a.is-active {
+    color: var(--berry);
+    background: var(--berry-soft);
   }
   .nav-brand {
     flex-shrink: 0;
@@ -91,45 +94,61 @@ const wa =
       font-size: 0.9rem;
     }
   }
-
-  @media (min-width: 1024px) {
-    .nav-links a:nth-child(1)::after {
-      /* labels largos solo en desktop via content? keep short for consistency */
-    }
-  }
 </style>
 
 <script is:inline>
   (function () {
     var toggle = document.getElementById('nav-toggle');
     var panel = document.getElementById('nav-panel');
-    if (!toggle || !panel) return;
-
-    function closeMenu() {
-      panel.classList.remove('is-open');
-      panel.hidden = true;
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Abrir menú');
+    if (toggle && panel) {
+      function closeMenu() {
+        panel.classList.remove('is-open');
+        panel.hidden = true;
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Abrir menú');
+      }
+      function openMenu() {
+        panel.hidden = false;
+        panel.classList.add('is-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.setAttribute('aria-label', 'Cerrar menú');
+      }
+      toggle.addEventListener('click', function () {
+        if (panel.classList.contains('is-open')) closeMenu();
+        else openMenu();
+      });
+      panel.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
+      window.addEventListener('resize', function () {
+        if (window.matchMedia('(min-width: 768px)').matches) closeMenu();
+      });
     }
 
-    function openMenu() {
-      panel.hidden = false;
-      panel.classList.add('is-open');
-      toggle.setAttribute('aria-expanded', 'true');
-      toggle.setAttribute('aria-label', 'Cerrar menú');
-    }
+    /* Nav activa al scroll (tablet/desktop) */
+    var sections = ['frasco', 'temporada', 'pedir', 'puerta'];
+    var links = document.querySelectorAll('.nav-links a[data-nav]');
+    if (!links.length || !('IntersectionObserver' in window)) return;
 
-    toggle.addEventListener('click', function () {
-      if (panel.classList.contains('is-open')) closeMenu();
-      else openMenu();
-    });
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var id = entry.target.id;
+          links.forEach(function (a) {
+            var on = a.getAttribute('data-nav') === id;
+            a.classList.toggle('is-active', on);
+            if (on) a.setAttribute('aria-current', 'true');
+            else a.removeAttribute('aria-current');
+          });
+        });
+      },
+      { rootMargin: '-40% 0px -45% 0px', threshold: 0 }
+    );
 
-    panel.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', closeMenu);
-    });
-
-    window.addEventListener('resize', function () {
-      if (window.matchMedia('(min-width: 768px)').matches) closeMenu();
+    sections.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) observer.observe(el);
     });
   })();
 </script>

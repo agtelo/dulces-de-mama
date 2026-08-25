@@ -24,6 +24,7 @@ const heroBg = `${base}img/hero-frutos.jpg`;
       <a class="btn btn-primary" href={wa} target="_blank" rel="noopener">Quiero pedir</a>
       <a class="btn btn-ghost" href="#temporada">Ver qué hay</a>
     </div>
+    <p class="invite-hint">Se abre WhatsApp · suelo responder en el día</p>
   </div>
 </section>
 
@@ -32,7 +33,7 @@ const heroBg = `${base}img/hero-frutos.jpg`;
     position: relative;
     padding: var(--space-16) 0 var(--space-20);
     text-align: center;
-    background-color: var(--cream);
+    background-color: #f6f0e6; /* evita flash blanco antes del hero */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -60,6 +61,11 @@ const heroBg = `${base}img/hero-frutos.jpg`;
   }
   .invite h1 {
     font-size: clamp(2.4rem, 9vw, 4.25rem);
+  }
+  .invite-hint {
+    margin-top: var(--space-4);
+    font-size: 0.88rem;
+    color: var(--muted);
   }
   @media (min-width: 768px) {
     .invite {

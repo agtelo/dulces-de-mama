@@ -1,5 +1,6 @@
 ---
 /** Precios orientativos (frasco ~350–400 g). Confirmamos por WhatsApp. */
+const phone = '5491131547166';
 const flavors = [
   {
     name: 'Frutilla',
@@ -45,12 +46,20 @@ const flavors = [
   },
 ];
 
+const hasAny = flavors.some((f) => f.on);
+
 const formatPrice = (n: number) =>
   new Intl.NumberFormat('es-AR', {
     style: 'currency',
     currency: 'ARS',
     maximumFractionDigits: 0,
   }).format(n);
+
+const waFor = (name: string) =>
+  `https://wa.me/${phone}?text=${encodeURIComponent(`Hola! Quiero pedir ${name}`)}`;
+
+const waRestock =
+  `https://wa.me/${phone}?text=${encodeURIComponent('Hola! Avisame cuando haya stock de Dulces de Mamá')}`;
 ---
 
 <section class="season" id="temporada">
@@ -62,7 +71,22 @@ const formatPrice = (n: number) =>
         Frasco de vidrio ~350–400 g. Precios orientativos: los confirmamos por
         WhatsApp. La fruta manda; si no hay, la próxima tanda te aviso.
       </p>
+      <p class="season-updated">Lista actualizada: agosto 2026</p>
     </div>
+
+    {
+      !hasAny && (
+        <div class="season-empty" role="status">
+          <p>
+            Esta semana estoy sin stock. Escribime y te aviso la próxima tanda.
+          </p>
+          <a class="btn btn-primary" href={waRestock} target="_blank" rel="noopener">
+            Avisame cuando haya
+          </a>
+        </div>
+      )
+    }
+
     <ul class="season-list">
       {flavors.map((f) => (
         <li class={`season-item ${f.on ? 'is-on' : 'is-off'}`}>
@@ -76,7 +100,23 @@ const formatPrice = (n: number) =>
             </div>
             <p class="season-note">{f.note}</p>
             <p class="season-pair">{f.pair}</p>
-            <p class="season-price">{formatPrice(f.price)}</p>
+            <div class="season-footer">
+              <p class="season-price">{formatPrice(f.price)}</p>
+              {
+                f.on ? (
+                  <a
+                    class="season-order"
+                    href={waFor(f.name)}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Pedir este
+                  </a>
+                ) : (
+                  <span class="season-order is-muted">Pronto</span>
+                )
+              }
+            </div>
           </div>
         </li>
       ))}
@@ -85,7 +125,6 @@ const formatPrice = (n: number) =>
 </section>
 
 <style>
-  /* Cards tipo etiqueta de frasco */
   .season-item {
     display: grid;
     grid-template-columns: 8px 1fr;
@@ -105,7 +144,7 @@ const formatPrice = (n: number) =>
     background: var(--kraft-deep);
   }
   .season-body {
-    padding: var(--space-5) var(--space-5) var(--space-5) var(--space-5);
+    padding: var(--space-5);
   }
   .season-pair {
     font-size: 0.88rem;
@@ -119,5 +158,46 @@ const formatPrice = (n: number) =>
     font-style: normal;
     font-weight: 600;
     color: var(--peach);
+  }
+  .season-updated {
+    margin-top: var(--space-3);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .season-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    margin-top: 0.35rem;
+  }
+  .season-order {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--berry);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    white-space: nowrap;
+  }
+  .season-order:hover {
+    color: var(--berry-hover);
+  }
+  .season-order.is-muted {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .season-empty {
+    max-width: 40rem;
+    margin: 0 auto var(--space-8);
+    padding: var(--space-6);
+    text-align: center;
+    background: var(--paper);
+    border: 2px dashed var(--line);
+    border-radius: var(--radius-md);
+  }
+  .season-empty p {
+    color: var(--muted);
+    margin-bottom: var(--space-5);
   }
 </style>

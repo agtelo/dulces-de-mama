@@ -27,7 +27,7 @@ const steps = [
     <div class="path-head">
       <p class="path-kicker">Sin carrito ni registro</p>
       <h2>Cómo se pide</h2>
-      <p>Todo se resuelve hablando. Como entre conocidos.</p>
+      <p>Todo se resuelve hablando. Como entre conocidos. Suelo responder en el día.</p>
     </div>
     <ol class="path-steps">
       {steps.map((s) => (
@@ -56,13 +56,15 @@ const steps = [
       </div>
     </div>
     <div class="path-cta">
-      <a class="btn btn-primary btn-lg" href={wa} target="_blank" rel="noopener">Escribime por WhatsApp</a>
+      <a class="btn btn-primary btn-lg" href={wa} target="_blank" rel="noopener">
+        Escribime por WhatsApp
+      </a>
+      <p class="path-hint">Se abre WhatsApp · +54 9 11 3154-7166</p>
     </div>
   </div>
 </section>
 
 <style>
-  /* Mismo lenguaje de “bloque de mesa” que Season */
   .path-card {
     display: grid;
     grid-template-columns: 8px 1fr;
@@ -91,8 +93,12 @@ const steps = [
   .path-extra-body p + p {
     margin-top: 0.5rem;
   }
-  /* anular grid viejo del step */
   .path-step.path-card {
     grid-template-columns: 8px 1fr;
+  }
+  .path-hint {
+    margin-top: var(--space-3);
+    font-size: 0.88rem;
+    color: #4a3a30;
   }
 </style>

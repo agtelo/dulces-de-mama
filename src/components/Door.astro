@@ -1,4 +1,5 @@
 ---
+const phoneDisplay = '+54 9 11 3154-7166';
 const wa =
   'https://wa.me/5491131547166?text=' +
   encodeURIComponent('Hola! Quiero consultar por Dulces de Mamá');
@@ -11,12 +12,37 @@ const wa =
       <h2>Si te late, escribime.</h2>
       <p>
         Consultas, encargues, regalos o solo preguntar qué hay esta semana.
-        Respondemos con calma, sin apuro de tienda.
+        Suelo responder en el día, sin apuro de tienda.
       </p>
-      <a class="btn btn-on-dark btn-lg" href={wa} target="_blank" rel="noopener">Escribime por WhatsApp</a>
+      <a class="btn btn-on-dark btn-lg" href={wa} target="_blank" rel="noopener">
+        Escribime por WhatsApp
+      </a>
+      <p class="door-hint">Se abre WhatsApp</p>
+      <p class="door-phone">
+        O al número:{' '}
+        <a href={wa} target="_blank" rel="noopener">{phoneDisplay}</a>
+      </p>
       <p class="door-meta">
         Buenos Aires · CABA y GBA · Retiro a coordinar o envío a convenir · Solo círculo cercano
       </p>
     </div>
   </div>
 </section>
+
+<style>
+  .door-hint {
+    margin-top: var(--space-3);
+    font-size: 0.88rem;
+    color: rgba(255, 252, 247, 0.7);
+  }
+  .door-phone {
+    margin-top: var(--space-4);
+    font-size: 0.95rem;
+    color: rgba(255, 252, 247, 0.85);
+  }
+  .door-phone a {
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+</style>

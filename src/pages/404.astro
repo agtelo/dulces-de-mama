@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="No encontramos esa página | Dulces de Mamá">
+  <main class="not-found">
+    <div class="container">
+      <p class="not-found-kicker">Ups</p>
+      <h1>Esta página no está en la cocina.</h1>
+      <p>Volvé al inicio y mirá qué hay esta temporada.</p>
+      <a class="btn btn-primary" href="/">Ir al inicio</a>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-16) 0;
+  }
+  .not-found-kicker {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--peach);
+    background: var(--peach-soft);
+    padding: 0.45rem 1rem;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-4);
+  }
+  .not-found h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 6vw, 3.2rem);
+    color: var(--berry);
+    margin-bottom: var(--space-4);
+  }
+  .not-found p {
+    color: var(--muted);
+    margin-bottom: var(--space-8);
+  }
+</style>
