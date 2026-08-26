@@ -1,5 +1,6 @@
 ---
 const phone = '5491131547166';
+const base = import.meta.env.BASE_URL;
 const flavors = [
   { name: 'Frutilla', price: 9500, on: true },
   { name: 'Durazno', price: 9000, on: true },
@@ -9,9 +10,9 @@ const flavors = [
   { name: 'Manzana', price: 9000, on: false },
 ];
 const sizes = [
-  { id: '250', label: '250 g', note: 'Chico, para probar', factor: 0.75 },
-  { id: '360', label: '360 g', note: 'El de siempre', factor: 1 },
-  { id: '500', label: '500 g', note: 'Para la mesa', factor: 1.35 },
+  { id: '250', label: '250 g', note: 'Chico, para probar', factor: 0.75, img: `${base}img/frasco-250.svg` },
+  { id: '360', label: '360 g', note: 'El de siempre', factor: 1, img: `${base}img/frasco-360.svg` },
+  { id: '500', label: '500 g', note: 'Para la mesa', factor: 1.35, img: `${base}img/frasco-500.svg` },
 ];
 ---
 
@@ -28,10 +29,10 @@ const sizes = [
 
     <div class="cart-board">
       <fieldset class="cart-block">
-        <legend>1. Medida del frasco</legend>
+        <legend>1. Elegí el frasco</legend>
         <div class="cart-sizes" role="radiogroup" aria-label="Medida del frasco">
           {sizes.map((s, i) => (
-            <label class={`cart-choice ${i === 1 ? 'is-on' : ''}`}>
+            <label class={`cart-jar ${i === 1 ? 'is-on' : ''}`}>
               <input
                 type="radio"
                 name="jar-size"
@@ -40,8 +41,9 @@ const sizes = [
                 data-factor={s.factor}
                 checked={i === 1}
               />
-              <span class="cart-choice-title">{s.label}</span>
-              <span class="cart-choice-note">{s.note}</span>
+              <img src={s.img} alt={`Frasco de ${s.label}`} width="160" height="200" />
+              <span class="cart-jar-label">{s.label}</span>
+              <span class="cart-jar-note">{s.note}</span>
             </label>
           ))}
         </div>
@@ -146,7 +148,7 @@ const sizes = [
   }
   .cart-head p { color: var(--muted); }
   .cart-board {
-    max-width: 40rem;
+    max-width: 44rem;
     margin: 0 auto;
     display: grid;
     gap: var(--space-6);
@@ -167,7 +169,53 @@ const sizes = [
     color: var(--berry);
     margin-bottom: var(--space-3);
   }
-  .cart-sizes,
+  .cart-sizes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+  }
+  .cart-jar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.35rem;
+    padding: 0.65rem 0.4rem 0.85rem;
+    background: var(--paper);
+    border: 2.5px solid var(--line);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    touch-action: manipulation;
+    position: relative;
+  }
+  .cart-jar input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .cart-jar img {
+    width: 100%;
+    max-width: 140px;
+    height: auto;
+    border-radius: 16px;
+  }
+  .cart-jar-label {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--berry);
+    line-height: 1;
+  }
+  .cart-jar-note {
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.3;
+  }
+  .cart-jar.is-on {
+    border-color: var(--berry);
+    background: var(--berry-soft);
+    box-shadow: 0 4px 0 var(--berry);
+  }
   .cart-flavors {
     display: grid;
     grid-template-columns: 1fr;
@@ -311,8 +359,8 @@ const sizes = [
     width: 100%;
   }
   @media (min-width: 640px) {
-    .cart-sizes { grid-template-columns: repeat(3, 1fr); }
     .cart-flavors { grid-template-columns: 1fr 1fr; }
+    .cart-jar-note { font-size: 0.85rem; }
   }
 </style>
 
@@ -364,7 +412,7 @@ const sizes = [
     }
 
     function markChoices() {
-      root.querySelectorAll('.cart-choice').forEach(function (lab) {
+      root.querySelectorAll('.cart-choice, .cart-jar').forEach(function (lab) {
         var inp = lab.querySelector('input');
         lab.classList.toggle('is-on', !!(inp && inp.checked && !inp.disabled));
       });

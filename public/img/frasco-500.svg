@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 200" fill="none">
+  <rect width="160" height="200" rx="20" fill="#F6F0E6"/>
+  <g transform="translate(34,22)">
+    <rect x="12" y="0" width="68" height="18" rx="3" fill="#CDB892" stroke="#5C4033" stroke-width="2"/>
+    <rect x="18" y="16" width="56" height="10" rx="2" fill="#E6D8C0" stroke="#5C4033" stroke-width="1.5"/>
+    <path d="M10 28h72c6 0 12 6 12 13v86c0 22-14 36-48 36S-2 149 -2 127V41c0-7 6-13 12-13Z" fill="#F8F4EC" stroke="#5C4033" stroke-width="2"/>
+    <path d="M2 68h88v59c0 20-12 32-44 32S2 147 2 127V68Z" fill="#A61B34"/>
+    <path d="M10 72h28c4 12 14 22 36 26v12c-26-3-38-14-42-28Z" fill="#C41E3A" opacity=".45"/>
+    <rect x="26" y="92" width="40" height="26" rx="3" fill="#FFFCF7" stroke="#5C4033" stroke-width="1.2"/>
+    <text x="46" y="108" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#A61B34">Dulces</text>
+    <path d="M22 40h48" stroke="#5C4033" stroke-width="1.5" stroke-linecap="round" opacity=".35"/>
+  </g>
+  <text x="80" y="188" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#A61B34" font-weight="700">500 g</text>
+</svg>
