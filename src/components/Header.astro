@@ -20,10 +20,10 @@ const wa =
     <nav class="nav-links" aria-label="Principal">
       <a href="#frasco" data-nav="frasco">Frasco</a>
       <a href="#temporada" data-nav="temporada">Temporada</a>
-      <a href="#pedido" data-nav="pedido">Pedido</a>
+      <a href="#pedir" data-nav="pedir">Pedir</a>
     </nav>
 
-    <a class="btn btn-primary nav-cta" href={wa} target="_blank" rel="noopener" data-cart-wa>Escribime</a>
+    <a class="btn btn-primary nav-cta" href={wa} target="_blank" rel="noopener">Escribime</a>
 
     <button
       class="nav-toggle"
@@ -42,10 +42,9 @@ const wa =
   <div class="nav-panel" id="nav-panel" hidden>
     <a href="#frasco">El frasco</a>
     <a href="#temporada">Temporada</a>
-    <a href="#pedido">Armar pedido</a>
     <a href="#pedir">Cómo pedir</a>
     <a href="#puerta">Escribime</a>
-    <a class="btn btn-primary" href={wa} target="_blank" rel="noopener" data-cart-wa>Escribime por WhatsApp</a>
+    <a class="btn btn-primary" href={wa} target="_blank" rel="noopener">Escribime por WhatsApp</a>
   </div>
 </header>
 
@@ -126,7 +125,7 @@ const wa =
       });
     }
 
-    var sections = ['frasco', 'temporada', 'pedido', 'pedir'];
+    var sections = ['frasco', 'temporada', 'pedir', 'puerta'];
     var links = document.querySelectorAll('.nav-links a[data-nav]');
     if (!links.length || !('IntersectionObserver' in window)) return;
 
