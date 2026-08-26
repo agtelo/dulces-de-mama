@@ -6,8 +6,8 @@ const wa =
 const steps = [
   {
     n: '1',
-    title: 'Me escribís',
-    text: 'Por WhatsApp, decime qué sabor querés (o preguntá qué hay).',
+    title: 'Armás el pedido',
+    text: 'Sabor, medida del frasco y cantidad. O escribime directo.',
   },
   {
     n: '2',
@@ -25,9 +25,9 @@ const steps = [
 <section class="path" id="pedir">
   <div class="container">
     <div class="path-head">
-      <p class="path-kicker">Sin carrito ni registro</p>
+      <p class="path-kicker">Sin registro ni pago online</p>
       <h2>Cómo se pide</h2>
-      <p>Todo se resuelve hablando. Como entre conocidos. Suelo responder en el día.</p>
+      <p>El carrito arma el mensaje. Después se resuelve hablando, como entre conocidos.</p>
     </div>
     <ol class="path-steps">
       {steps.map((s) => (
@@ -59,10 +59,8 @@ const steps = [
       </div>
     </div>
     <div class="path-cta">
-      <a class="btn btn-primary btn-lg" href={wa} target="_blank" rel="noopener">
-        Escribime por WhatsApp
-      </a>
-      <p class="path-hint">Se abre WhatsApp · sin compromiso · +54 9 11 3154-7166</p>
+      <a class="btn btn-primary btn-lg" href="#pedido">Armar pedido</a>
+      <p class="path-hint">O escribime · +54 9 11 3154-7166</p>
     </div>
   </div>
 </section>

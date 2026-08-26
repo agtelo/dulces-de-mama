@@ -1,5 +1,5 @@
 ---
-/** Precios orientativos (frasco ~350–400 g). Confirmamos por WhatsApp. */
+/** Precios orientativos del frasco 360 g. Confirmamos por WhatsApp. */
 const phone = '5491131547166';
 const flavors = [
   {
@@ -56,9 +56,6 @@ const formatPrice = (n: number) =>
     maximumFractionDigits: 0,
   }).format(n);
 
-const waFor = (name: string) =>
-  `https://wa.me/${phone}?text=${encodeURIComponent(`Hola! Quiero pedir ${name}`)}`;
-
 const waRestock =
   `https://wa.me/${phone}?text=${encodeURIComponent('Hola! Avisame cuando haya stock de Dulces de Mamá')}`;
 ---
@@ -69,8 +66,8 @@ const waRestock =
       <p class="season-kicker">Esta temporada</p>
       <h2>Lo que hay ahora en la cocina</h2>
       <p>
-        Frasco de vidrio ~350–400 g. Precios orientativos: los confirmamos por
-        WhatsApp. La fruta manda; si no hay, la próxima tanda te aviso.
+        Precio de referencia del frasco 360 g. En el pedido elegís medida y
+        cantidad. Lo confirmamos por WhatsApp.
       </p>
       <p class="season-updated">Lista actualizada: agosto 2026</p>
     </div>
@@ -105,14 +102,14 @@ const waRestock =
               <p class="season-price">{formatPrice(f.price)}</p>
               {
                 f.on ? (
-                  <a
+                  <button
+                    type="button"
                     class="season-order"
-                    href={waFor(f.name)}
-                    target="_blank"
-                    rel="noopener"
+                    data-add-flavor={f.name}
+                    data-add-price={f.price}
                   >
-                    Pedir este
-                  </a>
+                    Agregar
+                  </button>
                 ) : (
                   <span class="season-order is-muted">Pronto</span>
                 )
@@ -136,9 +133,6 @@ const waRestock =
     border: 2px solid var(--line);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
-  }
-  .season-item:active {
-    transform: scale(0.99);
   }
   .season-label-bar {
     background: var(--berry);
@@ -183,17 +177,19 @@ const waRestock =
     text-underline-offset: 3px;
     white-space: nowrap;
     touch-action: manipulation;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
   }
   .season-order:hover {
     color: var(--berry-hover);
-  }
-  .season-order:visited {
-    color: #7a3144;
   }
   .season-order.is-muted {
     color: var(--muted);
     text-decoration: none;
     font-weight: 600;
+    cursor: default;
   }
   .season-empty {
     max-width: 40rem;
@@ -209,3 +205,19 @@ const waRestock =
     margin-bottom: var(--space-5);
   }
 </style>
+
+<script is:inline>
+  document.querySelectorAll('[data-add-flavor]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      window.dispatchEvent(
+        new CustomEvent('ddm-add', {
+          detail: {
+            flavor: btn.getAttribute('data-add-flavor'),
+            price: parseFloat(btn.getAttribute('data-add-price')),
+            qty: 1,
+          },
+        })
+      );
+    });
+  });
+</script>

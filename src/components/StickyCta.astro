@@ -4,7 +4,7 @@ const wa =
   encodeURIComponent('Hola! Quiero pedir Dulces de Mamá');
 ---
 <div class="sticky-cta" role="region" aria-label="Pedir por WhatsApp">
-  <a class="btn btn-primary" href={wa} target="_blank" rel="noopener">Escribime</a>
+  <a class="btn btn-primary" href={wa} target="_blank" rel="noopener" data-cart-wa id="sticky-wa">Escribime</a>
   <p class="sticky-hint">Se abre WhatsApp</p>
 </div>
 
@@ -25,3 +25,15 @@ const wa =
     }
   }
 </style>
+
+<script is:inline>
+  window.addEventListener('ddm-cart', function (e) {
+    var a = document.getElementById('sticky-wa');
+    var hint = document.querySelector('.sticky-hint');
+    if (!a || !e.detail) return;
+    a.setAttribute('href', e.detail.href);
+    var n = (e.detail.items || []).length;
+    a.textContent = n ? 'Enviar pedido' : 'Escribime';
+    if (hint) hint.textContent = n ? 'WhatsApp con tu pedido' : 'Se abre WhatsApp';
+  });
+</script>
